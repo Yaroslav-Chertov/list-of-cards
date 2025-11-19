@@ -35,8 +35,17 @@ const CreateProduct = () => {
   };
 
   return (
-    <div style={{ padding: 20, maxWidth: 500, margin: "0 auto" }}>
+    <div
+      style={{
+        padding: 20,
+        maxWidth: 500,
+        width: "100%",
+        margin: "0 auto",
+        boxSizing: "border-box",
+      }}
+    >
       <Link to="/products">← Back</Link>
+
       <h1 style={{ marginTop: 20 }}>Create Product</h1>
 
       <form
@@ -46,16 +55,24 @@ const CreateProduct = () => {
           flexDirection: "column",
           gap: 15,
           marginTop: 20,
+          width: "100%",
+          boxSizing: "border-box",
         }}
       >
-        <div>
+        <div style={{ width: "100%" }}>
           <input
             placeholder="Title"
             {...register("title")}
-            style={{ width: "100%", padding: 8 }}
+            style={{
+              width: "100%",
+              padding: 10,
+              borderRadius: 8,
+              border: "1px solid #ccc",
+              boxSizing: "border-box",
+            }}
           />
           {errors.title && (
-            <p style={{ color: "red" }}>{errors.title.message}</p>
+            <p style={{ color: "red", marginTop: 5 }}>{errors.title.message}</p>
           )}
         </div>
 
@@ -63,10 +80,19 @@ const CreateProduct = () => {
           <textarea
             placeholder="Description"
             {...register("description")}
-            style={{ width: "100%", padding: 8, height: 100 }}
+            style={{
+              width: "100%",
+              padding: 10,
+              height: 120,
+              borderRadius: 8,
+              border: "1px solid #ccc",
+              boxSizing: "border-box",
+            }}
           />
           {errors.description && (
-            <p style={{ color: "red" }}>{errors.description.message}</p>
+            <p style={{ color: "red", marginTop: 5 }}>
+              {errors.description.message}
+            </p>
           )}
         </div>
 
@@ -74,10 +100,16 @@ const CreateProduct = () => {
           <input
             placeholder="Image URL"
             {...register("image")}
-            style={{ width: "100%", padding: 8 }}
+            style={{
+              width: "100%",
+              padding: 10,
+              borderRadius: 8,
+              border: "1px solid #ccc",
+              boxSizing: "border-box",
+            }}
           />
           {errors.image && (
-            <p style={{ color: "red" }}>{errors.image.message}</p>
+            <p style={{ color: "red", marginTop: 5 }}>{errors.image.message}</p>
           )}
         </div>
 
@@ -87,19 +119,26 @@ const CreateProduct = () => {
             step="0.01"
             placeholder="Price"
             {...register("price", { valueAsNumber: true })}
-            style={{ width: "100%", padding: 8 }}
+            style={{
+              width: "100%",
+              padding: 10,
+              borderRadius: 8,
+              border: "1px solid #ccc",
+              boxSizing: "border-box",
+            }}
           />
           {errors.price && (
-            <p style={{ color: "red" }}>{errors.price.message}</p>
+            <p style={{ color: "red", marginTop: 5 }}>{errors.price.message}</p>
           )}
         </div>
 
         <button
           type="submit"
           style={{
-            padding: "10px 20px",
-            background: "#333",
+            padding: "12px 16px",
+            background: "#4A4AE2",
             color: "#fff",
+            fontSize: 16,
             borderRadius: 8,
             border: "none",
             cursor: "pointer",
