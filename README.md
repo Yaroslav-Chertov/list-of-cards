@@ -1,73 +1,89 @@
-# React + TypeScript + Vite
+# List of Cards -- Products Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SPA-приложение для работы со списком продуктов: просмотр, лайки,
+удаление, фильтрация, поиск, пагинация, создание и редактирование
+карточек.
 
-Currently, two official plugins are available:
+![Скриншот приложения](./src/assets/images/Screenshot_readme.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Деплой
 
-## React Compiler
+[Ссылка на деплой на Vercel](https://)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📌 Функционал
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Просмотр списка продуктов `/products`
+- Лайк карточки (с сохранением в store)
+- Удаление карточки
+- Фильтрация: все / избранные
+- Обрезка описания на карточках для одинаковой высоты
+- Переход на страницу продукта `/products/:id`
+- Создание продукта `/create-product`
+- Редактирование продукта `/edit-product/:id`
+- Сохранение данных в Zustand (persist)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠 Стек технологий
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Технология Назначение
+
+---
+
+**React + TypeScript** UI и типизация
+**Zustand (persist middleware)** Store для продуктов
+**React Router** Маршрутизация
+**React Hook Form + Zod** Формы и валидация
+**Vite** Сборка проекта
+
+---
+
+## 🔗 API
+
+Для получения списка продуктов используется публичный API:\
+`https://fakestoreapi.com/products`
+
+Созданные и отредактированные продукты сохраняются в локальном Zustand
+store.
+
+---
+
+## 📂 Структура проекта
+
+    src/
+     ├─ components/
+     │   └─ ProductCard.tsx
+     ├─ pages/
+     │   ├─ ProductsList.tsx
+     │   ├─ ProductPage.tsx
+     │   ├─ CreateProduct.tsx
+     │   └─ EditProduct.tsx
+     ├─ store/
+     │   └─ useProductsStore.ts
+     ├─ App.tsx
+     └─ main.tsx
+
+---
+
+## ▶️ Установка и запуск
+
+```bash
+git clone https://github.com/Yaroslav-Chertov/list-of-cards
+cd list-of-cards
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Открыть в браузере:\
+http://localhost:5173/
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🌟 Возможные улучшения
+
+- Сортировка по цене / алфавиту\
+- Skeleton-загрузка\
+- Темная тема\
+- Модалки для создания/редактирования
