@@ -40,6 +40,20 @@ const ProductPage = () => {
           Price: ${product.price}
         </p>
       )}
+
+      <Link to={`/edit-product/${product.id}`}>
+        <button
+          style={{
+            marginTop: 20,
+            padding: "10px 16px",
+            borderRadius: 8,
+            cursor: "pointer",
+            border: "1px solid #ccc",
+          }}
+        >
+          Edit product
+        </button>
+      </Link>
     </div>
   );
 };

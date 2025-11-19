@@ -22,7 +22,6 @@ export const useProductsStore = create<State>()(
       filter: "all",
 
       fetchProducts: async () => {
-        // Если данные уже есть → не перезаписываем (не ломаем созданные карточки)
         if (get().products.length > 0) return;
 
         try {
