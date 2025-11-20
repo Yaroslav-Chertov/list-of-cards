@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import ProductsList from "./pages/ProductsList";
 import ProductPage from "./pages/ProductPage";
 import CreateProduct from "./pages/CreateProduct";
@@ -7,7 +7,7 @@ import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/products" />} />
 
@@ -19,7 +19,7 @@ function App() {
 
         <Route path="*" element={<h2>Page not found</h2>} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
